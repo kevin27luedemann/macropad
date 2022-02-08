@@ -178,13 +178,14 @@ def number_pad(key_event):
         mp.keyboard.release_all()
 
 mp      = MacroPad()
-i2c     = busio.I2C(board.SCL,board.SDA,frequency=400000)
+i2c     = busio.I2C(board.SCL,board.SDA,frequency=100000)
 no_sens = False
 try:
     htu     = adafruit_htu31d.HTU31D(i2c)
 except:
     no_sens = True
 tl      = mp.display_text()
+#tl[0].text = "Hallo"
 text    = mp.display_text()
 tl.show()
 pix     = mp.pixels
